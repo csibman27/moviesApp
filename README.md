@@ -1,7 +1,7 @@
 
 # Full Stack Development 2 - Assignment.
 
-__Name:__ [your full name]
+__Name:__ Tibor Molnar
 
 ## Features.
 
