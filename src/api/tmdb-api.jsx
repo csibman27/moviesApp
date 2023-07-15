@@ -1,6 +1,6 @@
 export const getMovies = () => {
     return fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+    `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1-4`
     ).then((response) => {
         if (!response.ok) {
             throw new Error(response.json().message);
@@ -69,17 +69,19 @@ export const getMovieImages = ({ queryKey }) => {
 export const getMovieReviews = (id) => {
     return fetch(
         `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${import.meta.env.VITE_TMDB_KEY}`
-    )
-        .then((res) => res.json())
-        .then((json) => {
+    ).then((response) => response.json())
+     .then((json) => {
             // console.log(json.results);
             return json.results;
+        })
+        .catch((error) => {
+            throw error
         });
 };
 
 export const getUpcomingMovies = () => {
     return fetch(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
     ).then( (response) => {
         if (!response.ok) {
             throw new Error(response.json().message);
@@ -91,3 +93,48 @@ export const getUpcomingMovies = () => {
             throw error
         });
 };
+
+export const getTvSeries = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
+
+  export const getSimilarMovies = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/movie/movie_id/similar?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
+
+  export const getActors = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
