@@ -4,12 +4,10 @@ import {getUpcomingMovies} from "../api/tmdb-api";
 import {useQuery} from "react-query";
 import Spinner from "../components/spinner";
 import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
-import AddPlaylistAddIcon from "../components/cardIcons/playlistAddIcon";
 
 
-
-const UpcomingMoviesPage = (props) => {
-    const { data, error, isLoading, isError } = useQuery("movie", getUpcomingMovies);
+const TvSeriesPage = (props) => {
+    const { data, error, isLoading, isError } = useQuery("series", getTvSeries);
 
     if (isLoading) {
         return <Spinner />;
@@ -22,17 +20,14 @@ const UpcomingMoviesPage = (props) => {
 
     return (
         <PageTemplate
-            title="Upcoming Movies"
+            title="TV Series"
             movies={movies}
             action={(movie) => {
-                return (
-                    <>
-                        <AddToFavouritesIcon movie={movie} />
-                        <AddPlaylistAddIcon movie={movie} />
-                    </>
-                )
+                return <AddToFavouritesIcon movie={movie} />
+                       
+                 
             }}
         />
     );
 };
-export default UpcomingMoviesPage;
+export default TvSeriesPage;
