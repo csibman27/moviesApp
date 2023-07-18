@@ -11,7 +11,7 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
-import TvSeriesPage from "./pages/tvSeriesPage";
+import CustomIcons from './components/pagination';
 
 
 const queryClient = new QueryClient({
@@ -28,7 +28,7 @@ const App = () => {
     return (
         <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-            <SiteHeader />      {/* New Header  */}
+            <SiteHeader />      {/* Header imported  */}
             <MoviesContextProvider>
             <Routes>
                 <Route path="/movies/favourites" element={<FavouriteMoviesPage />} />
@@ -38,12 +38,11 @@ const App = () => {
                 <Route path="/reviews/:id" element={<MovieReviewPage/>} />
                 <Route path="/movies/upcoming" element={<UpcomingMoviesPage/>} />
                 <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
-                <Route path="/movies/series" element={<TvSeriesPage/>} />
-                {     /* Commented out for the moment 
-                <Route path="/movies/similars" element={<SimilarMovies/>} />
-                <Route path="/movies/mostpopular" element={<MostPopularMovies/>} />     */ }
+                
+                {/* Commented out for the moment */ }
             </Routes>
             </MoviesContextProvider>
+            <CustomIcons /> {/* Added Footer for pagination */}
         </BrowserRouter>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

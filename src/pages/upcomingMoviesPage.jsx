@@ -28,7 +28,7 @@ const UpcomingMoviesPage = (props) => {
                 return (
                     <>
                         <AddToFavouritesIcon movie={movie} />
-                        <AddPlaylistAddIcon movie={movie} />
+                       <AddPlaylistAddIcon movie={movie} />
                     </>
                 )
             }}
