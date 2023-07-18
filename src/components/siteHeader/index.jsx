@@ -11,6 +11,24 @@ import Menu from "@mui/material/Menu";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
+import { createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  status: {
+    danger: '#e53e3e',
+  },
+  palette: {
+    primary: {
+      main: '#0971f1',
+      darker: '#053e85',
+    },
+    neutral: {
+      main: '#64748B',
+      contrastText: '#fff',
+    },
+  },
+});
 
 const styles = {
     title: {
@@ -31,7 +49,7 @@ const SiteHeader = () => {
         { label: "Home", path: "/" },
         { label: "Upcoming", path: "/movies/upcoming" },
         { label: "Favorites", path: "/movies/favourites" },
-        { label: "Tv Shows", path: "/tvshows" },
+        { label: "Tv Series", path: "/tv/discover" },
         { label: "Actors", path: "/actors" },
         
     ];
@@ -46,7 +64,7 @@ const SiteHeader = () => {
 
     return (
         <>
-            <AppBar position="fixed" elevation={0} color="primary">
+            <AppBar position="fixed" elevation={0} theme={theme} >
                 <Toolbar>
                     <Typography variant="h4" sx={styles.title}>
                         TMDB Client
@@ -100,7 +118,9 @@ const SiteHeader = () => {
                                     onClick={() => handleMenuSelect(opt.path)}
                                 >
                                     {opt.label}
+                                    <LocalMoviesIcon />
                                 </Button>
+                                
                             ))}
                         </>
                     )}
