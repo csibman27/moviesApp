@@ -19,9 +19,9 @@ const styles = {
     },
 };
 
-const TemplateSeriesPage = ({ movie, children }) => {
+const PageTemplate = ({ tvshow, children }) => {
     const { data , error, isLoading, isError } = useQuery(
-        ["images", { id: movie.id }],
+        ["images", { id: tvshow.id }],
         getTVShowImages
     );
 
@@ -36,7 +36,7 @@ const TemplateSeriesPage = ({ movie, children }) => {
 
     return (
         <>
-            <MovieHeader movie={movie} />
+            <MovieHeader tvshow={tvshow} />
 
             <Grid container spacing={5} style={{ padding: "15px" }}>
                 <Grid item xs={3}>
@@ -66,4 +66,4 @@ const TemplateSeriesPage = ({ movie, children }) => {
     );
 };
 
-export default TemplateSeriesPage;
+export default PageTemplate;

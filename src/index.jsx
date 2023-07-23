@@ -12,7 +12,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import CustomIcons from './components/pagination';
-import TvSeriesPage from './pages/tvSeriesPage';
+import TVShowsPage from './pages/tvShowsPage';
 
 
 const queryClient = new QueryClient({
@@ -40,7 +40,7 @@ const App = () => {
                 <Route path="/movies/upcoming" element={<UpcomingMoviesPage/>} />
                 <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
                 <Route path="/" element={<AddMovieReviewPage/>} />
-                <Route path="/tv/discover" element={<TvSeriesPage/>} />
+                <Route path="/tvshows" element={<TVShowsPage/>} />
                 {/* Commented out for the moment */ }
             </Routes>
             </MoviesContextProvider>

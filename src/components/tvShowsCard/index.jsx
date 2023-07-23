@@ -23,13 +23,13 @@ const styles = {
     },
 };
 
-export default function SeriesCard({ serie, action }) {
+export default function TVShowCard({ tvshow, action }) {
     const { favourites, addToFavourites } = useContext(MoviesContext);
 
-    if (favourites.find((id) => id === serie.id)) {
-        serie.favourite = true;
+    if (favourites.find((id) => id === tvshow.id)) {
+        tvshow.favourite = true;
     } else {
-        serie.favourite = false
+        tvshow.favourite = false
     }
 
     return (
@@ -37,7 +37,7 @@ export default function SeriesCard({ serie, action }) {
             <CardHeader
                 sx={styles.header}
                 avatar={
-                    serie.favourite ? (
+                    tvshow.favourite ? (
                         <Avatar sx={styles.avatar}>
                             <FavoriteIcon />
                         </Avatar>
@@ -45,15 +45,15 @@ export default function SeriesCard({ serie, action }) {
                 }
                 title={
                     <Typography variant="h5" component="p">
-                        {serie.title}{" "}
+                        {tvshow.title}{" "}
                     </Typography>
                 }
             />
             <CardMedia
                 sx={styles.media}
                 image={
-                    serie.poster_path
-                        ? `https://image.tmdb.org/t/p/w500/${serie.poster_path}`
+                    tvshow.poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${tvshow.poster_path}`
                         : img
                 }
             />
@@ -62,21 +62,21 @@ export default function SeriesCard({ serie, action }) {
                     <Grid item xs={6}>
                         <Typography variant="h6" component="p">
                             <CalendarIcon fontSize="small" />
-                            {serie.release_date}
+                            {tvshow.release_date}
                         </Typography>
                     </Grid>
                     <Grid item xs={6}>
                         <Typography variant="h6" component="p">
                             <StarRateIcon fontSize="small" />
-                            {"  "} {serie.vote_average}{" "}
+                            {"  "} {tvshow.vote_average}{" "}
                         </Typography>
                     </Grid>
                 </Grid>
             </CardContent>
             <CardActions disableSpacing>
-                {action(serie)}
+                {/* {action(tvshow)} */}
                 <Button variant="outlined" size="medium" color="primary">
-                    <Link to={`/movies/${serie.id}`}>
+                    <Link to={`/tvshow/${tvshow.id}`}>
                         <Button variant="outlined" size="medium" color="primary">
                             More Info ...
                         </Button>
