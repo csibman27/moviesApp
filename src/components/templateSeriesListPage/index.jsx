@@ -19,14 +19,14 @@ const styles = {
 };
 
 
-function SeriesListPageTemplate({ movies, title, action }) {
+function SeriesListPageTemplate({ series, title, action }) {
     const [titleFilter, setTitleFilter] = useState("");
     const [genreFilter, setGenreFilter] = useState("0");
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const genreId = Number(genreFilter);
 
-    let displayedMovies = movies
+    let displayedMovies = series
         .filter((m) => {
             return m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
         })
@@ -48,7 +48,7 @@ function SeriesListPageTemplate({ movies, title, action }) {
                     title
                 </Grid>
                 <Grid item container spacing={5}>
-                    <MovieList action={action} movies={displayedMovies} />
+                    <MovieList action={action} series={displayedMovies} />
                 </Grid>
             </Grid>
             <Fab

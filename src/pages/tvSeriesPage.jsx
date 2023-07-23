@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PageTemplate from '../components/templateSeriesListPage'
+import PageTemplate from '../components/templateMovieListPage'
 import {getTvSeries} from "../api/tmdb-api";
 import {useQuery} from "react-query";
 import Spinner from "../components/spinner";
@@ -15,16 +15,12 @@ const TvSeriesPage = (props) => {
         return <h1>{error.message}</h1>;
     }
 
-    const movies = data ? data.results : [];
-    console.log(data)
+    const series = data.results;
 
       return (
         <PageTemplate
-          title="Discover Series"
-          movies={movies}
-          action={(movie) => {
-            return <AddToFavouritesIcon movie={movie} />;
-          }}
+          title="TV Series"
+          series={series}
           
         />
       );
