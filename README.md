@@ -7,7 +7,7 @@ __Name:__ Tibor Molnar
 
 [A bullet-point list of the features developed for the React SPA app (only new/modified ones for the Movies app),]
 
-+ Feature X.
++ Feature TV Shows
 + Feature Y. 
 + etc.
 
@@ -17,11 +17,11 @@ __Name:__ Tibor Molnar
 
 e.g. 
 
-#### Upcoming Movies.
+#### TV Shows.
 
-> Lists movies from the Upcoming movies endpoint of TMDB.
+> Lists movies from the TV Shows endpoint of TMDB.
 
-![][image1]
+![][Screenshot-tvseries]
 
 #### Movies Reviews.
 

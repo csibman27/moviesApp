@@ -19,7 +19,7 @@ const styles = {
     },
 };
 
-const PageTemplate = ({ tvshow, children }) => {
+const TVShowPageTemplate = ({ tvshow, children }) => {
     const { data , error, isLoading, isError } = useQuery(
         ["images", { id: tvshow.id }],
         getTVShowImages
@@ -66,4 +66,4 @@ const PageTemplate = ({ tvshow, children }) => {
     );
 };
 
-export default PageTemplate;
+export default TVShowPageTemplate;
