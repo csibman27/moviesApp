@@ -19,7 +19,7 @@ const styles = {
 };
 
 
-function MovieListPageTemplate({ movies, title, action }) {
+function MovieListPageTemplate({ movies, title, action, currentPage, SetCurrentPage }) {
     const [titleFilter, setTitleFilter] = useState("");
     const [genreFilter, setGenreFilter] = useState("0");
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -44,7 +44,10 @@ function MovieListPageTemplate({ movies, title, action }) {
             <Grid container sx={styles.root}>
                 <Grid item xs={12}>
                     grid
-                    <Header title={title} />
+                    <Header title={title}
+                    currentPage={currentPage}
+                    SetCurrentPage={SetCurrentPage}
+                    />
                     title
                 </Grid>
                 <Grid item container spacing={5}>

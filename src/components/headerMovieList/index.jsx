@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Paper from "@mui/material/Paper";
@@ -15,24 +15,28 @@ const styles = {
     },
 };
 
-const Header = (props ) => {
-    const title = props.title
+const Header = ({ title, currentPage, setCurrentPage} ) => {
+
+    const handleGoForward = () => {
+        setCurrentPage((prevCurrentPage) => prevCurrentPage + 1);
+    };
+
+    const handleGoBack = () => {
+        setCurrentPage((prevCurrentPage) => prevCurrentPage - 1);
+    };
 
     return (
         <Paper component="div" sx={styles.root}>
-            <IconButton
-                aria-label="go back"
-            >
-                <ArrowBackIcon color="primary" fontSize="large" />
+            <IconButton disabled={currentPage===1} aria-label="go back" onClick={handleGoBack}>
+                <ArrowBackIcon color={currentPage===1 ? "disabled" : "primary"} fontSize="large" />
             </IconButton>
 
             <Typography variant="h4" component="h3">
                 {title}
             </Typography>
-            <IconButton
-                aria-label="go forward"
-            >
-                <ArrowForwardIcon color="primary" fontSize="large" />
+
+            <IconButton disbaled={currentPage===10} aria-label="go forward" onClick={handleGoForward}>
+                <ArrowForwardIcon color={currentPage===10 ? "disabled" : "primary"} fontSize="large" />
             </IconButton>
         </Paper>
     );
