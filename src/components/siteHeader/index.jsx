@@ -51,6 +51,7 @@ const SiteHeader = () => {
         { label: "Favorites", path: "/movies/favourites" },
         { label: "Tv Shows", path: "/tvshows" },
         { label: "Actors", path: "/actors" },
+        { label: "Similar", path: "/movies/similar" }
         
     ];
 

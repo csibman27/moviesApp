@@ -1,3 +1,17 @@
+export const pagination = () => {
+  const currentPage = 1;
+  const totalPages = [];
+  // check first and last page
+  if (currentPage < 1) {
+    currentPage = 1;
+  } else if (currentPage > totalPages) {
+    currentPage = totalPages;
+  }
+}
+
+
+
+
 export const getMovies = () => {
     return fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1-4`

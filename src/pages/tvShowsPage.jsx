@@ -22,7 +22,6 @@ const TVShowsPage = (props) => {
 
     const tvshows = data.results.map((tvShow) => {
       tvShow.title = tvShow.name;
-      tvShow.release_date = tvShow.first_air_date;
       return tvShow;
     });
     console.log(tvshows)
