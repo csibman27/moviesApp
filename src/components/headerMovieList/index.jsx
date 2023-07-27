@@ -20,13 +20,13 @@ const Header = ({ title, currentPage, setCurrentPage} ) => {
     const handleGoBack = () => {
         setCurrentPage((prevCurrentPage) => prevCurrentPage -1);
     };
-    console.log("set current page log:")
+   /* console.log("set current page log:")
     if (typeof setCurrentPage === 'function') {
         console.log("Yes this is a function")
     } else {
         console.log("NO ITS NOT A FUNCTION!!!!!")
     }
-
+    */
     const handleGoForward = () => {
         setCurrentPage((prevCurrentPage) => prevCurrentPage +1);
     };

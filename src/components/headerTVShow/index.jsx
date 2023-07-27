@@ -4,7 +4,6 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import Paper from "@material-ui/core/Paper";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { useNavigate } from "react-router-dom";
 
 const styles = {
   root: {
@@ -16,24 +15,28 @@ const styles = {
   },
 };
 
-const TVShowHeader = (props) => {
-  const navigate = useNavigate();
-  const classes = useStyles();
-  const tvShow = props.tvShow;
-  console.log(tvShow);
+const TVShowHeader = ({ tvShow, currentPageShow, setCurrentPageShow }) => {
+
+  const handleGoBack = () => {
+    setCurrentPageShow((prevCurrentPageShow) => prevCurrentPageShow -1);
+};
+
+const handleGoForward = () => {
+    setCurrentPageShow((prevCurrentPageShow) => prevCurrentPageShow +1);
+};
+  
   return (
-    <Paper component="div" className={classes.root}>
-      <IconButton aria-label="go back" onClick={() => navigate(-1)}>
-        <ArrowBackIcon color="primary" fontSize="large" />
+    <Paper component="div" sx={styles.root}>
+      <IconButton disabled={currentPageShow===1} aria-label="go back" onClick={handleGoBack}>
+        <ArrowBackIcon color={currentPageShow===1 ? "disabled" : "primary"} fontSize="large" />
       </IconButton>
 
       <Typography variant="h4" component="h3">
-        {tvShow.name}
-        <br />
-        <span className={classes.tagLine}>{`   "${tvShow.tagline}"`} </span>
+        {tvShow}
       </Typography>
-      <IconButton aria-label="go forward" onClick={() => navigate(1)}>
-        <ArrowForwardIcon color="primary" fontSize="large" />
+
+      <IconButton disabled={currentPageShow===10} aria-label="go forward" onClick={handleGoForward}>
+        <ArrowForwardIcon color={currentPageShow===10 ? "disabled" : "primary"} fontSize="large" />
       </IconButton>
     </Paper>
   );

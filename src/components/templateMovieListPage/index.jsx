@@ -42,7 +42,6 @@ function MovieListPageTemplate({ movies, title, action, currentPage, setCurrentP
         <>
             <Grid container sx={styles.root}>
                 <Grid item xs={12}>
-                    grid
                     <Header title={title}
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}

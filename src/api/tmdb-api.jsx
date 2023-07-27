@@ -2,7 +2,7 @@
 export const getMovies = (args) => {
   const [, idPart] = args.queryKey;
   const { currentPage } = idPart;
-  console.log(currentPage)
+  //console.log(currentPage)
     return fetch(
     `https://api.themoviedb.org/3/discover/movie/?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${currentPage}`
     ).then((response) => {
@@ -85,7 +85,6 @@ export const getMovieReviews = (id) => {
 export const getUpcomingMovies = (args) => {
   const [, idPart] = args.queryKey;
   const { currentPage } = idPart;
-  console.log(currentPage)
   return fetch(
         `https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${currentPage}`
     ).then( (response) => {
@@ -100,9 +99,11 @@ export const getUpcomingMovies = (args) => {
         });
 };
 
-export const getTvSeries = () => {
-    return fetch(
-      `https://api.themoviedb.org/3/tv/popular?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+export const getTvSeries = (args) => {
+  const [, idPart] = args.queryKey;
+  const { currentPageShow } = idPart;
+  return fetch(
+      `https://api.themoviedb.org/3/tv/popular?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${currentPageShow}`
     )
       .then((response) => {
         if (!response.ok) {
@@ -133,8 +134,10 @@ export const getTvSeries = () => {
   };
 
   export const getSimilarMovies = () => {
-    return fetch(
-      `https://api.themoviedb.org/3/movie/movie_id/similar?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+  const [, idPart] = args.queryKey;
+  const { currentPage } = idPart;
+  return fetch(
+      `https://api.themoviedb.org/3/movie/movie_id/similar?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${currentPage}`
     )
       .then((response) => {
         if (!response.ok) {
