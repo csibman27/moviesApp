@@ -19,13 +19,12 @@ const styles = {
 };
 
 
-function MovieListPageTemplate({ movies, title, action, currentPage, SetCurrentPage }) {
+function MovieListPageTemplate({ movies, title, action, currentPage, setCurrentPage }) {
     const [titleFilter, setTitleFilter] = useState("");
     const [genreFilter, setGenreFilter] = useState("0");
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const genreId = Number(genreFilter);
-
     let displayedMovies = movies
         .filter((m) => {
             return m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
@@ -46,9 +45,8 @@ function MovieListPageTemplate({ movies, title, action, currentPage, SetCurrentP
                     grid
                     <Header title={title}
                     currentPage={currentPage}
-                    SetCurrentPage={SetCurrentPage}
+                    setCurrentPage={setCurrentPage}
                     />
-                    title
                 </Grid>
                 <Grid item container spacing={5}>
                     <MovieList action={action} movies={displayedMovies} />

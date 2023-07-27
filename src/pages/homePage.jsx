@@ -4,20 +4,17 @@ import { getMovies } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
+import { useParams } from "react-router-dom";
 
 const HomePage = (props) => {
+    
     const [ currentPage, setCurrentPage ] = useState(1);
-    const { data, error, isLoading, isError } = useQuery( ["discover", {currentPage: currentPage}], getMovies);
-    //scroll down page that loads in more pages
-    const [counts, setCounts] = useState({
-        total_pages: 500,
-        total_results: 10000
-      });
-
-    const hasNext = counts.total_pages > currentPage;
+    const { data, error, isLoading, isError } = useQuery( ["discover", {currentPage: currentPage}],
+    getMovies
+    );
     
     const handlePageChange = (newPage) => {
-        setCurrentPage (newPage);    
+        setCurrentPage (newPage); 
     };
 
     if (isLoading) {

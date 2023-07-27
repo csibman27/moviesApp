@@ -17,12 +17,18 @@ const styles = {
 
 const Header = ({ title, currentPage, setCurrentPage} ) => {
 
-    const handleGoForward = () => {
-        setCurrentPage((prevCurrentPage) => prevCurrentPage + 1);
-    };
-
     const handleGoBack = () => {
-        setCurrentPage((prevCurrentPage) => prevCurrentPage - 1);
+        setCurrentPage((prevCurrentPage) => prevCurrentPage -1);
+    };
+    console.log("set current page log:")
+    if (typeof setCurrentPage === 'function') {
+        console.log("Yes this is a function")
+    } else {
+        console.log("NO ITS NOT A FUNCTION!!!!!")
+    }
+
+    const handleGoForward = () => {
+        setCurrentPage((prevCurrentPage) => prevCurrentPage +1);
     };
 
     return (
@@ -35,7 +41,7 @@ const Header = ({ title, currentPage, setCurrentPage} ) => {
                 {title}
             </Typography>
 
-            <IconButton disbaled={currentPage===10} aria-label="go forward" onClick={handleGoForward}>
+            <IconButton disabled={currentPage===10} aria-label="go forward" onClick={handleGoForward}>
                 <ArrowForwardIcon color={currentPage===10 ? "disabled" : "primary"} fontSize="large" />
             </IconButton>
         </Paper>

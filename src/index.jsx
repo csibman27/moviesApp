@@ -11,7 +11,6 @@ import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
-import CustomIcons from './components/pagination';
 import TVShowsPage from './pages/tvShowsPage';
 
 
@@ -46,7 +45,7 @@ const App = () => {
                  Commented out for the moment */ }
             </Routes>
             </MoviesContextProvider>
-            <CustomIcons /> {/* Added Footer for pagination */}
+           {/* <CustomIcons />  took away footer for pagination */}
         </BrowserRouter>
             <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
