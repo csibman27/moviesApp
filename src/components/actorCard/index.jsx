@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png'
@@ -32,16 +33,40 @@ export default function ActorCard({ actor, action }) {
                 sx={styles.header}
                 title={
                     <Typography variant="h5" component="p">
-                        {actor}{" "}
+                        {actor.name}{" "}
                     </Typography>
                 }
             />
+             <CardMedia
+                sx={styles.media}
+                image={
+                    actor.profile_path
+                        ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
+                        : img
+                }
+            />
+            <CardContent>
+                <Grid container>
+                    <Grid item xs={6}>
+                        <Typography variant="h6" component="p">
+                            <ThumbUpOffAltIcon fontSize="small" color="primary" />
+                            {" Popularity "}{actor.popularity}
+                        </Typography>
+                        
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Typography variant="h6" component="p">
+                        {/*   */ }
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </CardContent>
             <CardActions disableSpacing>
                 {action(actor)}
                 <Button variant="outlined" size="medium" color="primary">
-                    <Link to={`${actor}`}>
-                        <Button variant="outlined" size="medium" color="primary">
-                            More Info ...
+                    <Link to={`/actor/${actor.id}`}>
+                        <Button variant="outlined" size="medium" color="secondary">
+                            Actor Bio
                         </Button>
                     </Link>
                 </Button>

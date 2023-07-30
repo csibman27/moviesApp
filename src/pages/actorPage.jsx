@@ -7,6 +7,7 @@ import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
 
 const ActorPage = (props) => {
     
+    const [ currentPage, setCurrentPage ] = useState(1);
     const { data, error, isLoading, isError } = useQuery("actors",
     getActors
     );

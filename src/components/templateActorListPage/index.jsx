@@ -31,7 +31,6 @@ function ActorListPageTemplate({ actors, title, action }) {
 
     const handleChange = (type, value) => {
         if (type === "name") setNameFilter(value);
-        else setGenreFilter(value);
     };
 
     return (

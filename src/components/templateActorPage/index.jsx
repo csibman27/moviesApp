@@ -32,17 +32,16 @@ const TemplateActorPage = ({ actor, children }) => {
     if (isError) {
         return <h1>{error.message}</h1>;
     }
-    const images = data.posters
 
     return (
         <>
             <ActorHeader actor={actor} />
-
+            
             <Grid container spacing={5} style={{ padding: "15px" }}>
                 <Grid item xs={3}>
                     <div sx={styles.gridListRoot}>
                         <ImageList cols={1}>
-                            {images.map((actor) => (
+                            {actor.map((actor) => (
                                 <ImageListItem
                                     key={actor.file_path}
                                     sx={styles.gridListTile}
