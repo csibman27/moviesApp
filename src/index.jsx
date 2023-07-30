@@ -43,11 +43,11 @@ const App = () => {
                 <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
                 <Route path="/" element={<AddMovieReviewPage/>} />
                 <Route path="/tvshows" element={<TVShowsPage/>} />
-                <Route path="/tvshows/:id" element={<TVShowDetailsPage />} />
+                <Route path="/tvshow/:id" element={<TVShowDetailsPage />} />*/ 
                 <Route path="/movies/popular" element={<PopularMoviesPage />} />
                 <Route path="/actors" element={<ActorPage />} />
                 <Route path="/actor/:id" element={<ActorBioPage />} />
-                 {/* Commented out for the moment */ }
+                 
             </Routes>
             </MoviesContextProvider>
            {/* <CustomIcons />  took away footer for pagination */}

@@ -31,7 +31,7 @@ const TVShowsPage = (props) => {
     tvShow.title = tvShow.name;
     return tvShow;
   });
-  //console.log(tvshows)
+  console.log("Show TV shows API: ", tvshows)
   
 
       return (
@@ -41,11 +41,7 @@ const TVShowsPage = (props) => {
           currentPageShow={currentPageShow}
           tvshows={tvshows}
           action={(tvshow) => {
-              return (
-                  <>
-                      <AddToFavouritesIcon tvshow={tvshow} />
-                      {/*<AddPlaylistAddIcon tvshow={tvshow} /> */}
-                  </>
+              return ( <AddToFavouritesIcon tvshow={tvshow} />
               )
           }}
         />

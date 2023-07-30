@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TVShowHeader from "../headerTVShowList";
+import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
 import Grid from "@mui/material/Grid";
 import Fab from "@mui/material/Fab";
@@ -27,11 +27,11 @@ function TVShowPageListTemplate({ tvshows, title, action, currentPageShow, setCu
     const genreId = Number(genreFilter);
 
     let displayedTVShows = tvshows
-        .filter((m) => {
-            return m.name.toLowerCase().search(tvFilter.toLowerCase()) !== -1;
+        .filter((s) => {
+            return s.name.toLowerCase().search(tvFilter.toLowerCase()) !== -1;
         })
-        .filter((m) => {
-            return genreId > 0 ? m.genre_ids.includes(genreId) : true;
+        .filter((s) => {
+            return genreId > 0 ? s.genre_ids.includes(genreId) : true;
         });
 
     const handleChange = (type, value) => {
@@ -43,12 +43,10 @@ function TVShowPageListTemplate({ tvshows, title, action, currentPageShow, setCu
         <>
             <Grid container sx={styles.root}>
                 <Grid item xs={12}>
-                    
-                    <TVShowHeader title={title}
+                    <Header title={title}
                     currentPageShow={currentPageShow}
                     setCurrentPageShow={setCurrentPageShow}
-                    />
-                    
+                    />  
                 </Grid>
                 <Grid item container spacing={5}>
                     <TVShowList action={action} tvshows={displayedTVShows} />

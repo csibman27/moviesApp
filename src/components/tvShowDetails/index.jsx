@@ -53,16 +53,15 @@ const TVShowDetails = ( {tvshow}) => {
                 ))}
             </Paper>
             <Paper component="ul" sx={styles.chipSet}>
-                <Chip icon={<AccessTimeIcon />} label={`${tvshow.runtime} min.`} />
-                <Chip
-                    icon={<MonetizationIcon />}
-                    label={`${tvshow.revenue.toLocaleString()}`}
-                />
+                <Chip icon={<AccessTimeIcon />} label={`${tvshow.episode_run_time} min.`} />
+
                 <Chip
                     icon={<StarRate />}
                     label={`${tvshow.vote_average} (${tvshow.vote_count}`}
                 />
-                <Chip label={`Released: ${tvshow.release_date}`} />
+                <Chip label={`Last Air Date: ${tvshow.last_air_date}`} />
+                <Chip label={`Languages: ${tvshow.languages}`} />
+                <Chip label={`Original Name: ${tvshow.original_name}`} />
             </Paper>
             <Fab
                 color="secondary"
@@ -74,7 +73,7 @@ const TVShowDetails = ( {tvshow}) => {
                 Reviews
             </Fab>
             <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                <MovieReviews tvshow={tvshow} />
+                {/* <MovieReviews tvshow={tvshow} /> */}
             </Drawer>
         </>
     );

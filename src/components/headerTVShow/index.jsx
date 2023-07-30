@@ -18,7 +18,6 @@ const styles = {
 
 const TVShowHeader = (props) => {
     const tvshow = props.tvshow;
-    console.log(tvshow)
     const retrieveValue = JSON.parse(localStorage.getItem("favourites"));
 
     return (
@@ -27,13 +26,9 @@ const TVShowHeader = (props) => {
                 <ArrowBackIcon color="primary" fontSize="large" />
             </IconButton>
 
-            {console.log(retrieveValue)}
-
             <Typography variant="h4" component="h3">
-                {tvshow.title}{"   "}
-                <a href={tvshow.homepage}>
-                    <HomeIcon color="primary"  fontSize="='large"/>
-                </a>
+                {tvshow.name}
+                
                 <br />
                 <span>{`${tvshow.tagline}`} </span>
             </Typography>
