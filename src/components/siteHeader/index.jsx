@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
-import { createTheme } from '@mui/material/styles';
 
 const styles = {
     title: {
@@ -32,10 +31,11 @@ const SiteHeader = () => {
     const menuOptions = [
         { label: "Home", path: "/" },
         { label: "Upcoming", path: "/movies/upcoming" },
+        { label: "Popular", path: "/movies/popular" },
         { label: "Favorites", path: "/movies/favourites" },
         { label: "Tv Shows", path: "/tvshows" },
         { label: "Actors", path: "/actors" },
-        { label: "Similar", path: "/movies/similar" }
+        
         
     ];
 

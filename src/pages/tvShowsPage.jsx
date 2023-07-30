@@ -31,7 +31,7 @@ const TVShowsPage = (props) => {
     tvShow.title = tvShow.name;
     return tvShow;
   });
-  console.log(tvshows)
+  //console.log(tvshows)
   
 
       return (

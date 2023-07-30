@@ -1,45 +1,47 @@
 import React from "react";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import Paper from "@material-ui/core/Paper";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Paper from "@mui/material/Paper";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import HomeIcon from "@mui/icons-material/Home";
 
 const styles = {
-  root: {
-      display: "flex",
-      justifyContent: "space-around",
-      alignItems: "center",
-      flexWrap: "wrap",
-      padding: 1.5,
-  },
+    root: {
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center",
+        flexWrap: "wrap",
+        padding: 1.5,
+    },
 };
 
-const TVShowHeader = ({ tvShow, currentPageShow, setCurrentPageShow }) => {
+const TVShowHeader = (props) => {
+    const tvshow = props.tvshow;
+    console.log(tvshow)
+    const retrieveValue = JSON.parse(localStorage.getItem("favourites"));
 
-  const handleGoBack = () => {
-    setCurrentPageShow((prevCurrentPageShow) => prevCurrentPageShow -1);
-};
+    return (
+        <Paper component="div" sx={styles.root}>
+            <IconButton aria-label="go back">
+                <ArrowBackIcon color="primary" fontSize="large" />
+            </IconButton>
 
-const handleGoForward = () => {
-    setCurrentPageShow((prevCurrentPageShow) => prevCurrentPageShow +1);
-};
-  
-  return (
-    <Paper component="div" sx={styles.root}>
-      <IconButton disabled={currentPageShow===1} aria-label="go back" onClick={handleGoBack}>
-        <ArrowBackIcon color={currentPageShow===1 ? "disabled" : "primary"} fontSize="large" />
-      </IconButton>
+            {console.log(retrieveValue)}
 
-      <Typography variant="h4" component="h3">
-        {tvShow}
-      </Typography>
-
-      <IconButton disabled={currentPageShow===10} aria-label="go forward" onClick={handleGoForward}>
-        <ArrowForwardIcon color={currentPageShow===10 ? "disabled" : "primary"} fontSize="large" />
-      </IconButton>
-    </Paper>
-  );
+            <Typography variant="h4" component="h3">
+                {tvshow.title}{"   "}
+                <a href={tvshow.homepage}>
+                    <HomeIcon color="primary"  fontSize="='large"/>
+                </a>
+                <br />
+                <span>{`${tvshow.tagline}`} </span>
+            </Typography>
+            <IconButton aria-label="go forward">
+                <ArrowForwardIcon color="primary" fontSize="large" />
+            </IconButton>
+        </Paper>
+    );
 };
 
 export default TVShowHeader;

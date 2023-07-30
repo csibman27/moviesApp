@@ -12,6 +12,8 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import TVShowsPage from './pages/tvShowsPage';
+import TVShowDetailsPage from "./pages/tvShowDetailsPage";
+import PopularMoviesPage from "./pages/popularMoviesPage";
 
 
 const queryClient = new QueryClient({
@@ -40,9 +42,9 @@ const App = () => {
                 <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
                 <Route path="/" element={<AddMovieReviewPage/>} />
                 <Route path="/tvshows" element={<TVShowsPage/>} />
-                {/*
-                <Route path="/movies/similar" element={<SimilarMoviesPage />} />
-                 Commented out for the moment */ }
+                <Route path="/tvshows/:id" element={<TVShowDetailsPage />} />
+                <Route path="/movies/popular" element={<PopularMoviesPage />} />
+                 {/* Commented out for the moment */ }
             </Routes>
             </MoviesContextProvider>
            {/* <CustomIcons />  took away footer for pagination */}
