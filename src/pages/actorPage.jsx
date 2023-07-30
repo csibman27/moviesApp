@@ -8,10 +8,13 @@ import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
 const ActorPage = (props) => {
     
     const [ currentPage, setCurrentPage ] = useState(1);
-    const { data, error, isLoading, isError } = useQuery("actors",
+    const { data, error, isLoading, isError } = useQuery(["actors", {currentPage: currentPage}],
     getActors
     );
-    //console.log("Actor data", data);
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage (newPage); 
+    };
     //console.log("Detailed actor data", data)
     
 
@@ -29,6 +32,8 @@ const ActorPage = (props) => {
     return (
         <PageTemplate
             title="Discover Actors"
+            setCurrentPage={handlePageChange}
+            currentPage={currentPage}
             actors={actors}
             action={(actor) => null}
         />

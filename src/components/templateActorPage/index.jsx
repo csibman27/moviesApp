@@ -19,9 +19,9 @@ const styles = {
     },
 };
 
-const TemplateActorPage = ({ actor, children }) => {
+const TemplateActorPage = ({ title, actor, children }) => {
     const { data , error, isLoading, isError } = useQuery(
-        ["actor images", { id: actor.id }],
+        ["images", { id: actor.id }],
         getActorImages
     );
 
@@ -33,6 +33,8 @@ const TemplateActorPage = ({ actor, children }) => {
         return <h1>{error.message}</h1>;
     }
 
+    const images = data.posters
+
     return (
         <>
             <ActorHeader actor={actor} />
@@ -41,18 +43,6 @@ const TemplateActorPage = ({ actor, children }) => {
                 <Grid item xs={3}>
                     <div sx={styles.gridListRoot}>
                         <ImageList cols={1}>
-                            {actor.map((actor) => (
-                                <ImageListItem
-                                    key={actor.file_path}
-                                    sx={styles.gridListTile}
-                                    cols={1}
-                                >
-                                    <img
-                                        src={`https://actor.tmdb.org/t/p/w500/${actor.file_path}`}
-                                        alt={actor.poster_path}
-                                    />
-                                </ImageListItem>
-                            ))}
                         </ImageList>
                     </div>
                 </Grid>

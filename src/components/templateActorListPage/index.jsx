@@ -19,11 +19,10 @@ const styles = {
 };
 
 
-function ActorListPageTemplate({ actors, title, action }) {
-    const [nameFilter, setTitleFilter] = useState("");
+function ActorListPageTemplate({ actors, title, action, currentPage, setCurrentPage }) {
+    const [nameFilter, setNameFilter] = useState("");
     const [drawerOpen, setDrawerOpen] = useState(false);
 
-    //const genreId = Number(genreFilter);
     let displayedActors = actors
         .filter((a) => {
             return a.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
@@ -38,6 +37,8 @@ function ActorListPageTemplate({ actors, title, action }) {
             <Grid container sx={styles.root}>
                 <Grid item xs={12}>
                     <Header title={title}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
                     />
                 </Grid>
                 <Grid item container spacing={5}>
