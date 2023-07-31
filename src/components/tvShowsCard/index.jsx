@@ -68,7 +68,7 @@ export default function TVShowCard({ tvshow, action }) {
                 {action(tvshow)}
                 <Button variant="outlined" size="medium" color="primary">
                     <Link to={`/tvshow/${tvshow.id}`}>
-                        {console.log(tvshow.id)}
+                        {/*{console.log(tvshow.id)}*/}
                         <Button variant="outlined" size="medium" color="primary">
                             TV Show Details
                         </Button>

@@ -33,6 +33,7 @@ const TVShowPageTemplate = ({ tvshow, children }) => {
         return <h1>{error.message}</h1>;
     }
     const images = data.posters
+    console.log("Images: ", images)
 
     return (
         <>

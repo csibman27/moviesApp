@@ -42,20 +42,22 @@ const ActorDetails = ( {actor}) => {
                 {actor.biography}
             </Typography>
 
-            <Paper component="ul" sx={styles.chipSet}>
+            {/*<Paper component="ul" sx={styles.chipSet}>
                 <li>
                     <Chip label="Genres" sx={styles.chipLabel} color="primary" />
                 </li>
                 
-            </Paper>
+            </Paper> */}
             <Paper component="ul" sx={styles.chipSet}>
-                <Chip icon={<AccessTimeIcon />} label={`${actor.runtime} min.`} />
+                {/*<Chip icon={<AccessTimeIcon />} label={`${actor.runtime} min.`} /> */}
                 
                 <Chip
                     icon={<StarRate />}
-                    label={`${actor.vote_average} (${actor.vote_count}`}
+                    label={`Department known: ${actor.known_for_department}`}
                 />
-                <Chip label={`Released: ${actor.release_date}`} />
+                <Chip label={`Popularity: ${actor.popularity}`} />
+                <Chip label={`Birthday: ${actor.birthday}`} />
+                <Chip label={`Place of Birth: ${actor.place_of_birth}`} />
             </Paper>
             <Fab
                 color="secondary"
