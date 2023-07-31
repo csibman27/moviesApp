@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import PageTemplate from "../components/templateMovieListPage";
-import { getPopularMovies } from "../api/tmdb-api";
+import { getMovie, getSimilarMovies } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
+import { useParams } from "react-router-dom";
 
-const PopularMoviesPage = (props) => {
+const SimilarMoviesPage = (props) => {
     
-    const [ currentPage, setCurrentPage ] = useState(1);
-    const { data, error, isLoading, isError } = useQuery(["movie", {currentPage: currentPage}],
-    getPopularMovies
-    );    
-    
-    const handlePageChange = (newPage) => {
-        setCurrentPage (newPage); 
-    };
+    const { id } = useParams();
+    //const { movie_id} = useParams();
+    const { data, error, isLoading, isError } = useQuery(["similar movies", { id: id }],
+    getSimilarMovies
+    );
+    console.log("ID POS: ", movie_id);
+    const { data: movie } = useQuery(["movie", { id: id }],
+    getMovie
+    );
 
     if (isLoading) {
         return <Spinner />;
@@ -24,13 +26,10 @@ const PopularMoviesPage = (props) => {
     }
 
     const movies = data.results;
-    console.log(data);
 
     return (
         <PageTemplate
-            title="Popular Movies"
-            setCurrentPage={handlePageChange}
-            currentPage={currentPage}
+            title="Similar to id 12"
             movies={movies}
             action={(movie) => {
                 return <AddToFavouritesIcon movie={movie} />
@@ -38,4 +37,4 @@ const PopularMoviesPage = (props) => {
         />
     );
 };
-export default PopularMoviesPage;
+export default SimilarMoviesPage;
