@@ -1,161 +1,99 @@
-import React, { useContext, useState } from "react";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import { useForm, Controller } from "react-hook-form";
-import { MoviesContext } from "../../contexts/moviesContext";
-import { useNavigate } from "react-router-dom";
-import styles from "./styles";
-import ratings from "./ratingCategories";
-import Snackbar from "@mui/material/Snackbar";
-import Alert from "@mui/material/Alert";
-import { getGenres, getActors } from "../../api/tmdb-api";
-import DatePicker, { DateObject } from "react-multi-date-picker";
-import myFantasyMovieList from "../myFantasyMovieList";
-import { useQuery } from "react-query";
+import React, { useState } from 'react';
+import { TextField } from '@material-ui/core';
+import { FormControl } from '@material-ui/core';
+import { InputLabel } from '@material-ui/core';
+import { Select } from '@material-ui/core';
+import { MenuItem } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
-const MyFantasyMovieForm = ({ movie }) => {
+
+
+//array of genres
+const genresList = ['Action', 'Adventure', 'Animation', 'Comedy', 'Fantasy',
+'Horror', 'Romance', 'Sci-Fi', 'Thriller'];
+
+const FantasyMovieForm = () => {
+
+  const [title, setTitle] = useState('');
+  const [overview, setOverview] = useState('');
+  const [genre, setGenre] = useState('');
+  const [releaseDate, setReleaseDate] = useState('');
+  const [runtime, setRuntime] = useState('');
+  const [productionCompany, setProductionCompany] = useState('');
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    // Here you can perform any actions with the movie data (e.g., save to database)
+    console.log({ title, overview, genre, releaseDate, runtime, productionCompany });
+    // Clear form inputs
+    setTitle('');
+    setOverview('');
+    setGenre('');
+    setReleaseDate('');
+    setRuntime('');
+    setProductionCompany('');
+  };
+
+  return (
     
-    const { data } = useQuery("genres", getGenres);
-    const { data: actors } = useQuery("actors", getActors);
-
-   
-
-    const onSubmit = (review) => {
-        review.movieId = movie.id;
-        review.rating = rating;
-        // console.log(review);
-        context.addReview(movie, review);
-        setOpen(true); // NEW
-    };
-
-
-    return (
-        <Box component="div" sx={styles.root}>
-            <Typography component="h2" variant="h3">
-                Write a review
-            </Typography>
-            <Snackbar
-                sx={styles.snack}
-                anchorOrigin={{ vertical: "top", horizontal: "right" }}
-                open={open}
-                onClose={handleSnackClose}
-            >
-                <Alert
-                    severity="success"
-                    variant="filled"
-                    onClose={handleSnackClose}
-                >
-                    <Typography variant="h4">
-                        Thank you for submitting a review
-                    </Typography>
-                </Alert>
-            </Snackbar>
-            <form sx={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
-                <Controller
-                    name="author"
-                    control={control}
-                    rules={{ required: "Name is required" }}
-                    defaultValue=""
-                    render={({ field: { onChange, value } }) => (
-                        <TextField
-                            sx={{ width: "40ch" }}
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            onChange={onChange}
-                            value={value}
-                            id="author"
-                            label="Author's name"
-                            autoFocus
-                        />
-                    )}
-                />
-                {errors.author && (
-                    <Typography variant="h6" component="p">
-                        {errors.author.message}
-                    </Typography>
-                )}
-                <Controller
-                    name="review"
-                    control={control}
-                    rules={{
-                        required: "Review cannot be empty.",
-                        minLength: { value: 10, message: "Review is too short" },
-                    }}
-                    defaultValue=""
-                    render={({ field: { onChange, value } }) => (
-                        <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            value={value}
-                            onChange={onChange}
-                            label="Review text"
-                            id="review"
-                            multiline
-                            minRows={10}
-                        />
-                    )}
-                />
-                {errors.review && (
-                    <Typography variant="h6" component="p">
-                        {errors.review.message}
-                    </Typography>
-                )}
-
-                <Controller
-                    control={control}
-                    name="rating"
-                    render={({ field: { onChange, value } }) => (
-                        <TextField
-                            id="select-rating"
-                            select
-                            variant="outlined"
-                            label="Rating Select"
-                            value={rating}
-                            onChange={handleRatingChange}
-                            helperText="Don't forget your rating"
-                        >
-                            {ratings.map((option) => (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                            ))}
-                        </TextField>
-                    )}
-                />
-
-                <Box sx={styles.buttons}>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        sx={styles.submit}
-                    >
-                        Submit
-                    </Button>
-                    <Button
-                        type="reset"
-                        variant="contained"
-                        color="secondary"
-                        sx={styles.submit}
-                        onClick={() => {
-                            reset({
-                                author: "",
-                                content: "",
-                            });
-                        }}
-                    >
-                        Reset
-                    </Button>
-                </Box>
-            </form>
-        </Box>
-    );
+    <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', maxWidth: 400, margin: 'auto' }}>
+      <TextField
+        label="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        required
+        style={{ marginBottom: 16 }}
+      />
+      <TextField
+        label="Overview"
+        value={overview}
+        onChange={(e) => setOverview(e.target.value)}
+        required
+        multiline
+        rows={4}
+        style={{ marginBottom: 16 }}
+      />
+      <FormControl style={{ marginBottom: 16 }}>
+        <InputLabel>Genre</InputLabel>
+        <Select
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+          required
+        >
+          {genresList.map((genre) => (
+            <MenuItem key={genre} value={genre}>
+              {genre}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      <TextField
+        label="Release Date"
+        value={releaseDate}
+        onChange={(e) => setReleaseDate(e.target.value)}
+        type="date"
+        required
+        style={{ marginBottom: 16 }}
+      />
+      <TextField
+        label="Runtime"
+        value={runtime}
+        onChange={(e) => setRuntime(e.target.value)}
+        type="digit"
+        required
+        style={{ marginBottom: 16 }}
+      />
+      <TextField
+        label="Production Company"
+        value={productionCompany}
+        onChange={(e) => setProductionCompany(e.target.value)}
+        style={{ marginBottom: 16 }}
+      />
+      <Button variant="contained" color="primary" type="submit">
+        Create Movie
+      </Button>
+    </form>
+  );
 };
 
-export default MyFantasyMovieForm;
+export default FantasyMovieForm;

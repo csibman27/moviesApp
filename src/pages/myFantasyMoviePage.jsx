@@ -3,34 +3,28 @@ import PageTemplate from '../components/templateMovieListPage'
 import {useQuery} from "react-query";
 import Spinner from "../components/spinner";
 import Header from "../components/headerMovieList";
+import FantasyMovieForm from "../components/myFantasyMovieForm";
+//import FantasyMovieForm from "../components/fantasyMovieForm";
 
 
 const MyFantasyMoviePage = (props) => {
     
     const { data, error, isLoading, isError } = useQuery("fantasy");
 
-    if (isLoading) {
-        return <Spinner />;
-    }
-    if (isError) {
-        return <h1>{error.message}</h1>;
-    }
-
+   
+/*
+The user can create their fantasy movie record
+Limit the details to Title, Overview, Genres, Release Date, Runtime, and Production Company(s)
+*/
     return (
-        <PageTemplate
-            title="Upcoming Movies"
-            setCurrentPage={handlePageChange}
-            currentPage={currentPage}
-            movies={movies}
-            action={(movie) => {
-                return (
-                    <>
-                        <AddToFavouritesIcon movie={movie} />
-                       <AddPlaylistAddIcon movie={movie} />
-                    </>
-                )
-            }}
-        />
+        <>
+           <Header title="My Fantasy Movie">
+           </Header>
+           <FantasyMovieForm />
+           
+           {/* <MyFantasyMovieForm /> */}
+        </>
+        
     );
 };
 export default MyFantasyMoviePage;

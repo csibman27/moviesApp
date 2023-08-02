@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const myFantasyMovieList = (props) => {
+const myFantasyMovieList = ({ fantasyMovie }) => {
   const navigate = useNavigate();
   const classes = useStyles();
 
