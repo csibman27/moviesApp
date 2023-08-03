@@ -5,14 +5,22 @@ import { InputLabel } from '@material-ui/core';
 import { Select } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
 import { Button } from '@material-ui/core';
+//import FantasyMovieList from '../myFantasyMovieList';
+import { MoviesContext } from "../../contexts/moviesContext";
+import { getMovie } from '../../api/tmdb-api';
+import {useQuery} from "react-query";
 
 
 
 //array of genres
 const genresList = ['Action', 'Adventure', 'Animation', 'Comedy', 'Fantasy',
 'Horror', 'Romance', 'Sci-Fi', 'Thriller'];
+//array of production companies
+const companyList = ['LuckyChap Entertainment', 'Heyday Films', 'NB/GG Pictures', 'Mattel' ];
+//context
+//const context = useContext(MoviesContext);
 
-const FantasyMovieForm = () => {
+const FantasyMovieForm = ({ movie }) => {
 
   const [title, setTitle] = useState('');
   const [overview, setOverview] = useState('');
@@ -20,6 +28,11 @@ const FantasyMovieForm = () => {
   const [releaseDate, setReleaseDate] = useState('');
   const [runtime, setRuntime] = useState('');
   const [productionCompany, setProductionCompany] = useState('');
+  const { data, setMovie } = useQuery("fantasy",
+  getMovie
+  );
+  const {fantasyMovies} = useQuery("fantasyMovies")
+
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -34,8 +47,15 @@ const FantasyMovieForm = () => {
     setProductionCompany('');
   };
 
+  const onSubmit = (fantasyMovie) => {
+    console.log("My fantasy Movie: ", fantasyMovie);
+    context.addFantasyMovie(fantasyMovie);
+  };
+  
+  
+
   return (
-    
+    <>
     <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', maxWidth: 400, margin: 'auto' }}>
       <TextField
         label="Title"
@@ -64,7 +84,7 @@ const FantasyMovieForm = () => {
             <MenuItem key={genre} value={genre}>
               {genre}
             </MenuItem>
-          ))}
+           ))}
         </Select>
       </FormControl>
       <TextField
@@ -83,16 +103,28 @@ const FantasyMovieForm = () => {
         required
         style={{ marginBottom: 16 }}
       />
-      <TextField
-        label="Production Company"
-        value={productionCompany}
-        onChange={(e) => setProductionCompany(e.target.value)}
-        style={{ marginBottom: 16 }}
-      />
+        <FormControl fullWidth required>
+        <InputLabel>Production Company</InputLabel>
+        <Select
+          value={productionCompany}
+          onChange={(e) => setProductionCompany(e.target.value)}
+        >
+          {companyList.map((productionCompany) => (
+            <MenuItem key={productionCompany} value={productionCompany}>
+              {productionCompany}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      <br></br>
+      {/* End 2 of Production company */}
+
       <Button variant="contained" color="primary" type="submit">
         Create Movie
       </Button>
     </form>
+    {/*<FantasyMovieList fantasyMovie={fantasyMovies} /> */}
+    </>
   );
 };
 

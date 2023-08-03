@@ -7,6 +7,7 @@ import { getMovie } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
 
+
 const MovieDetailsPage = () => {
     const { id } = useParams();
 
@@ -23,10 +24,12 @@ const MovieDetailsPage = () => {
         return <h1>{error.message}</h1>;
     }
 
+    
     return (
         <>
             {movie ? (
                 <>
+                {console.log("Production-companies: ", movie)}
                     <PageTemplate movie={movie}>
                         <MovieDetails movie={movie} />
                     </PageTemplate>

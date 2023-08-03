@@ -4,12 +4,15 @@ import {useQuery} from "react-query";
 import Spinner from "../components/spinner";
 import Header from "../components/headerMovieList";
 import FantasyMovieForm from "../components/myFantasyMovieForm";
-//import FantasyMovieForm from "../components/fantasyMovieForm";
+import { getMovie } from "../api/tmdb-api";
 
 
 const MyFantasyMoviePage = (props) => {
     
-    const { data, error, isLoading, isError } = useQuery("fantasy");
+    const { data, error, isLoading, isError } = useQuery("fantasy",
+    getMovie
+    );
+    
 
    
 /*

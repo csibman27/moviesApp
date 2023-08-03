@@ -4,9 +4,9 @@ import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import StarRate from "@mui/icons-material/StarRate";
 import Typography from "@mui/material/Typography";
-import NavigationIcon from "@mui/icons-material/Navigation";
+//import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
-import Drawer from "@mui/material/Drawer";
+//import Drawer from "@mui/material/Drawer";
 import MovieReviews from '../movieReviews'
 
 const styles = {
@@ -59,7 +59,7 @@ const ActorDetails = ( {actor}) => {
                 <Chip label={`Birthday: ${actor.birthday}`} />
                 <Chip label={`Place of Birth: ${actor.place_of_birth}`} />
             </Paper>
-            <Fab
+            {/*<Fab
                 color="secondary"
                 variant="extended"
                 onClick={() =>setDrawerOpen(true)}
@@ -70,7 +70,7 @@ const ActorDetails = ( {actor}) => {
             </Fab>
             <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
                 <MovieReviews actor={actor} />
-            </Drawer>
+            </Drawer>  */}
         </>
     );
 };
