@@ -17,6 +17,27 @@ export const getMovies = (args) => {
 };
 
 
+export const getSimilars = (args) => {
+  console.log(args)
+  const [, idPart, yearPart] = args.queryKey;
+  const { currentPage } = idPart;
+  const { year } = yearPart;
+  //console.log(currentPage)
+    return fetch(
+    `https://api.themoviedb.org/3/discover/movie/?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&year=${year}&include_video=false&page=${currentPage}`
+    ).then((response) => {
+        if (!response.ok) {
+            throw new Error(response.json().message);
+        }
+        return response.json();
+    })
+        .catch((error) => {
+            throw error
+        });
+};
+
+
+
 export const getMovie = (args) => {
     const [, idPart] = args.queryKey;
     const { id } = idPart;
@@ -154,7 +175,7 @@ export const getTvSeries = (args) => {
     const [, idPart] = args.queryKey;
     const { currentPage } = idPart;
     return fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=${currentPage}`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&page=${currentPage}`
     ).then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -166,11 +187,12 @@ export const getTvSeries = (args) => {
     });
   };
 
-  export const getSimilarMovies = (args) => {
-    const [, idPart] = args.queryKey;
-    const  { id } = idPart;
+  export const getSimilarMovies = () => {
+    // const [, idPart] = args.queryKey;
+    // const  { id } = idPart;
+    const movie_id = 12
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-USpage=1`
+      `https://api.themoviedb.org/3/movie/${movie_id}/similar?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-USpage=1`
     ).then((response) => {
       if (!response.ok){
         throw new Error(response.json().message);

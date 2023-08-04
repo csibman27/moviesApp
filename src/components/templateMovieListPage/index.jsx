@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import * as React from 'react';
 import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
 import Grid from "@mui/material/Grid";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
 import MovieList from "../movieList";
+import Typography from '@mui/material/Typography';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 const styles = {
     root: {
@@ -23,6 +27,11 @@ function MovieListPageTemplate({ movies, title, action, currentPage, setCurrentP
     const [titleFilter, setTitleFilter] = useState("");
     const [genreFilter, setGenreFilter] = useState("0");
     const [drawerOpen, setDrawerOpen] = useState(false);
+
+    const handleChange1 = (event, value) => {
+        setCurrentPage(value)
+        console.log("ONLY E", event, value)
+      };
 
     const genreId = Number(genreFilter);
     let displayedMovies = movies
@@ -43,8 +52,9 @@ function MovieListPageTemplate({ movies, title, action, currentPage, setCurrentP
             <Grid container sx={styles.root}>
                 <Grid item xs={12}>
                     <Header title={title}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
+                        currentPage={currentPage}
+                        setCurrentPage={setCurrentPage}
+
                     />
                 </Grid>
                 <Grid item container spacing={5}>
@@ -59,6 +69,10 @@ function MovieListPageTemplate({ movies, title, action, currentPage, setCurrentP
             >
                 Filter
             </Fab>
+            <Stack spacing={2}>
+                <Typography>Page: {currentPage}</Typography>
+                <Pagination count={10} page={currentPage} onChange={handleChange1} />
+            </Stack>
             <Drawer
                 anchor="left"
                 open={drawerOpen}

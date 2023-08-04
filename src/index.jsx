@@ -43,7 +43,7 @@ const App = () => {
                 <Route path="*" element={<Navigate to="/" />} />
                 <Route path="/reviews/:id" element={<MovieReviewPage/>} />
                 <Route path="/movies/upcoming" element={<UpcomingMoviesPage/>} />
-                <Route path="/movies/:id/similar" element={<SimilarMoviesPage/>} />
+                <Route path="/movies/similar" element={<SimilarMoviesPage/>} />
                 <Route path="/reviews/form" element={<AddMovieReviewPage/>} />
                 <Route path="/" element={<AddMovieReviewPage/>} />
                 <Route path="/tvshows" element={<TVShowsPage/>} />

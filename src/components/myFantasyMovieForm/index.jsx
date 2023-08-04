@@ -7,7 +7,7 @@ import { MenuItem } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 //import FantasyMovieList from '../myFantasyMovieList';
 import { MoviesContext } from "../../contexts/moviesContext";
-import { getMovie } from '../../api/tmdb-api';
+import { getGenres, getMovie } from '../../api/tmdb-api';
 import {useQuery} from "react-query";
 
 
@@ -29,15 +29,14 @@ const FantasyMovieForm = ({ movie }) => {
   const [runtime, setRuntime] = useState('');
   const [productionCompany, setProductionCompany] = useState('');
   const { data, setMovie } = useQuery("fantasy",
-  getMovie
+  getGenres
   );
   const {fantasyMovies} = useQuery("fantasyMovies")
-
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Here you can perform any actions with the movie data (e.g., save to database)
-    console.log({ title, overview, genre, releaseDate, runtime, productionCompany });
+    // console.log({ title, overview, genre, releaseDate, runtime, productionCompany });
     // Clear form inputs
     setTitle('');
     setOverview('');
@@ -52,7 +51,18 @@ const FantasyMovieForm = ({ movie }) => {
     context.addFantasyMovie(fantasyMovie);
   };
   
+//   const addToMustWatchList = (movie) => {
+//     if (!mustWatch.includes(movie.id)) {
+//         let newMustWatch = [...mustWatch, movie.id];
+//         setMustWatch(newMustWatch);
+//     }
+// };
+
+//  const genress = data
+//  console.log(genress.map((g) => { return g.name}))
+    
   
+
 
   return (
     <>

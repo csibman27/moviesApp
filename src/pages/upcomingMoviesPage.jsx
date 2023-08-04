@@ -9,7 +9,7 @@ import AddPlaylistAddIcon from "../components/cardIcons/playlistAddIcon";
 
 const UpcomingMoviesPage = (props) => {
     const [ currentPage, setCurrentPage ] = useState(1);
-    const { data, error, isLoading, isError } = useQuery(["movie", {currentPage: currentPage}],
+    const { data, error, isLoading, isError } = useQuery(["upcomingmovie", {currentPage: currentPage}],
      getUpcomingMovies
      );
 
