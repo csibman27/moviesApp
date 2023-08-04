@@ -27,6 +27,7 @@ function MovieListPageTemplate({ movies, title, action, currentPage, setCurrentP
     const [titleFilter, setTitleFilter] = useState("");
     const [genreFilter, setGenreFilter] = useState("0");
     const [drawerOpen, setDrawerOpen] = useState(false);
+    const [sortByTitle, setSortByTitle] = useState(false);
 
     const handleChange1 = (event, value) => {
         setCurrentPage(value)
@@ -42,8 +43,14 @@ function MovieListPageTemplate({ movies, title, action, currentPage, setCurrentP
             return genreId > 0 ? m.genre_ids.includes(genreId) : true;
         });
 
+    if (sortByTitle === true) {
+        displayedMovies.sort((a, b) => (a.title > b.title ? 1 : -1));
+    }
+        
+
     const handleChange = (type, value) => {
         if (type === "title") setTitleFilter(value);
+        else if (type === "sortTitle") setSortByTitle(value);
         else setGenreFilter(value);
     };
 
@@ -82,6 +89,7 @@ function MovieListPageTemplate({ movies, title, action, currentPage, setCurrentP
                     onUserInput={handleChange}
                     titleFilter={titleFilter}
                     genreFilter={genreFilter}
+                    sortByTitle={sortByTitle}
                 />
             </Drawer>
         </>
