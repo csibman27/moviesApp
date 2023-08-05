@@ -9,7 +9,8 @@ import Typography from "@mui/material/Typography";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
-import MovieReviews from '../movieReviews'
+import MovieReviews from '../movieReviews';
+import { CardMedia } from '@mui/material';
 
 const styles = {
     chipSet: {
@@ -73,6 +74,7 @@ const MovieDetails = ( {movie}) => {
                 sx={styles.fab}
             >
                 <NavigationIcon />
+                
                 Reviews
             </Fab>
             <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>

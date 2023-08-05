@@ -25,7 +25,7 @@ const UpcomingMoviesPage = (props) => {
     }
 
     const movies = data ? data.results : [];
-    console.log(data)
+    //console.log(data)
     
 
     return (

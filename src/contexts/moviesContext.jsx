@@ -9,8 +9,8 @@ const MoviesContextProvider = (props) => {
     const [mustWatch, setMustWatch] = useState([]);
     const [fantasyMovie, setFantasyMovie] = useState([]);
 
-    console.log("Must Watch Array", mustWatch);
-    console.log("fantasy movie", fantasyMovie);
+    //console.log("Must Watch Array", mustWatch);
+    //console.log("fantasy movie", fantasyMovie);
 
     const addToFavourites = (movie) => {
         let updatedFavourites = [...favourites];

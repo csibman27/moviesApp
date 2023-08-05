@@ -13,7 +13,7 @@ const TVShowDetailsPage = () => {
         ["tvshow", { id: id }],
         getTVShowDetails
     );
-    console.log("TVShow Details: ", tvshow)
+    //console.log("TVShow Details: ", tvshow)
 
     if (isLoading) {
         return <Spinner />;
