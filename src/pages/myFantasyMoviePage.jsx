@@ -13,8 +13,6 @@ const MyFantasyMoviePage = (props) => {
     getMovie
     );
     
-
-   
 /*
 The user can create their fantasy movie record
 Limit the details to Title, Overview, Genres, Release Date, Runtime, and Production Company(s)

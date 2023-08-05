@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -13,6 +13,7 @@ import { useQuery } from "react-query";
 import Spinner from "../spinner";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import { Checkbox, FormControlLabel, FormGroup } from "@material-ui/core";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
 const styles = {
   root: {
@@ -54,6 +55,9 @@ export default function FilterMoviesCard(props) {
   const handleGenreChange = (e) => {
     handleUserInput(e, "genre", e.target.value);
   };
+
+  //array of production companies
+  const sortList = ['Sort alphabetically by first', 'Sort alphabetically by last' ];
 
   const handleSortTitleChange = (e) => {
     handleUserInput(e, "sortTitle", e.target.checked);
@@ -100,13 +104,28 @@ export default function FilterMoviesCard(props) {
           <Typography variant="h5" component="h1">
             <SortIcon fontSize="large" />
             Sort the movies.
-            <FormGroup>
-              <FormControlLabel
-                control={<Checkbox onChange={handleSortTitleChange} />}
-                label="By Title Alphabetical"
-              />
-            </FormGroup>
           </Typography>
+          {/* P */}
+          <FormControl sx={styles.formControl}>
+            <InputLabel id="sort-label">Sort type</InputLabel>
+            <Select
+              labelId="sort-label"
+              id="sort-select"
+              value={props.sortByTitle}
+              onChange={handleSortTitleChange}
+            >
+              {/* {sortList.map((sortTitle) => {
+                return (
+                  <MenuItem key={sortTitle} value={sortTitle}>
+                    {sortTitle}
+                  </MenuItem>
+                );
+              })} */}
+              <option value="sort-select">Alphabetically by first</option>
+              <option value="sort-label">Alphabetically by last</option>
+            </Select>
+          </FormControl>
+          {/* P */}
         </CardContent>
       </Card>
     </>

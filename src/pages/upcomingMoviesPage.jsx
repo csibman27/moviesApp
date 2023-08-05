@@ -29,6 +29,7 @@ const UpcomingMoviesPage = (props) => {
     
 
     return (
+        <>
         <PageTemplate
             title="Upcoming Movies"
             setCurrentPage={handlePageChange}
@@ -38,11 +39,12 @@ const UpcomingMoviesPage = (props) => {
                 return (
                     <>
                         <AddToFavouritesIcon movie={movie} />
-                       <AddPlaylistAddIcon movie={movie} />
+                        {/*<AddPlaylistAddIcon movie={movie} />*/}
                     </>
                 )
             }}
         />
+        </>
     );
 };
 export default UpcomingMoviesPage;

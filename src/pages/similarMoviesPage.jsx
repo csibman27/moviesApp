@@ -14,7 +14,7 @@ const SimilarMoviesPage = (props) => {
     getSimilarMovies
   );
   const [searchText, setSearchText] = useState(""); //Searchfield
-  const [ movieName, setMovieName ] = useState("Matrix");
+  const [ movieName, setMovieName ] = useState("A");
   const { data: search } = useQuery(["search", { movieName: movieName }], getSearch);
   console.log("WHATS ID: ",movieName)
 
