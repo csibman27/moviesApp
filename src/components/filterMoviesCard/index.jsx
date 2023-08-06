@@ -12,8 +12,6 @@ import { getGenres } from "../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../spinner";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
-import { Checkbox, FormControlLabel, FormGroup } from "@material-ui/core";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
 const styles = {
   root: {

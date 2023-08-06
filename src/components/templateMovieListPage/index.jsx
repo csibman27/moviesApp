@@ -49,14 +49,11 @@ function MovieListPageTemplate({
     });
 
   if (sortByTitle) {
-    if (sortByTitle === 'Sort alphabetically from A-Z') {
-      displayedMovies.sort((a, b) => (a.title > b.title ? 1 : -1))
-    } else if (sortByTitle === 'Sort alphabetically from Z-A') {
-      displayedMovies.sort((a, b) => (a.title < b.title ? 1 : -1))
+    if (sortByTitle === "Sort alphabetically from A-Z") {
+      displayedMovies.sort((a, b) => (a.title > b.title ? 1 : -1));
+    } else if (sortByTitle === "Sort alphabetically from Z-A") {
+      displayedMovies.sort((a, b) => (a.title < b.title ? 1 : -1));
     }
-      
-    
-    //console.log(sortByTitle)
   };
 
   const handleChange = (type, value) => {
