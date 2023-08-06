@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import * as React from "react";
 import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
 import Grid from "@mui/material/Grid";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
 import TVShowList from "../tvShowCardList";
+import Typography from "@mui/material/Typography";
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 
 const styles = {
   root: {
@@ -30,6 +34,11 @@ function TVShowPageListTemplate({
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [sortByTitle, setSortByTitle] = useState(false);
 
+  const handleChange1 = (event, value) => {
+    setCurrentPage(value);
+    //console.log("ONLY E", event, value);
+  };
+
   const genreId = Number(genreFilter);
 
   let displayedTVShows = tvshows
@@ -46,7 +55,7 @@ function TVShowPageListTemplate({
     } else if (sortByTitle === "Sort alphabetically from Z-A") {
       displayedTVShows.sort((a, b) => (a.title < b.title ? 1 : -1));
     }
-  };
+  }
 
   const handleChange = (type, value) => {
     if (type === "name") setTvFilter(value);
@@ -76,6 +85,10 @@ function TVShowPageListTemplate({
       >
         Filter
       </Fab>
+      <Stack spacing={2}>
+        <Typography>Page: {currentPageShow}</Typography>
+        <Pagination count={10} page={currentPageShow} onChange={handleChange1} />
+      </Stack>
       <Drawer
         anchor="left"
         open={drawerOpen}

@@ -36,10 +36,10 @@ function MovieListPageTemplate({
 
   const handleChange1 = (event, value) => {
     setCurrentPage(value);
-    console.log("ONLY E", event, value);
   };
 
   const genreId = Number(genreFilter);
+
   let displayedMovies = movies
     .filter((m) => {
       return m.title.toLowerCase().search(titleFilter.toLowerCase()) !== -1;
