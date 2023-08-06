@@ -16,7 +16,7 @@ const SimilarMoviesPage = (props) => {
   const [searchText, setSearchText] = useState(""); //Searchfield
   const [ movieName, setMovieName ] = useState("A");
   const { data: search } = useQuery(["search", { movieName: movieName }], getSearch);
-  console.log("WHATS ID: ",movieName)
+  //console.log("WHATS ID: ",movieName)
 
   const handleSearch = (e) => {
     setMovieName(searchText);

@@ -60,7 +60,8 @@ export default function FilterMoviesCard(props) {
   const sortList = ['Sort alphabetically by first', 'Sort alphabetically by last' ];
 
   const handleSortTitleChange = (e) => {
-    handleUserInput(e, "sortTitle", e.target.checked);
+    handleUserInput(e, "sortTitle", e.target.value);
+    //console.log("T: ", e.target.value)
   };
 
   return (
@@ -114,15 +115,15 @@ export default function FilterMoviesCard(props) {
               value={props.sortByTitle}
               onChange={handleSortTitleChange}
             >
-              {/* {sortList.map((sortTitle) => {
+              {sortList.map((sortTitle) => {
                 return (
                   <MenuItem key={sortTitle} value={sortTitle}>
                     {sortTitle}
                   </MenuItem>
                 );
-              })} */}
-              <option value="sort-select">Alphabetically by first</option>
-              <option value="sort-label">Alphabetically by last</option>
+              })}
+              {/* <option value="sort-select">Alphabetically by first</option>
+              <option value="sort-label">Alphabetically by last</option> */}
             </Select>
           </FormControl>
           {/* P */}

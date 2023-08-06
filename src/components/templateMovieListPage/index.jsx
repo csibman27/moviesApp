@@ -48,8 +48,12 @@ function MovieListPageTemplate({
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
     });
 
-  if (sortByTitle === true) {
+  if (sortByTitle) {
     displayedMovies.sort((a, b) => (a.title > b.title ? 1 : -1));
+    // in here if (sortByTitle === 'Sort alphabetically by first') {
+    //  displayedMovies.sort((a, b) => (a.title > b.title ? 1 : -1));
+  
+    //console.log(sortByTitle)
   }
 
   const handleChange = (type, value) => {

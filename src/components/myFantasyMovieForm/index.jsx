@@ -5,7 +5,7 @@ import { InputLabel } from '@material-ui/core';
 import { Select } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-//import FantasyMovieList from '../myFantasyMovieList';
+import FantasyMovie from '../myFantasyMovie';
 import { MoviesContext } from "../../contexts/moviesContext";
 import { getGenres, getMovie } from '../../api/tmdb-api';
 import {useQuery} from "react-query";
@@ -31,12 +31,15 @@ const FantasyMovieForm = ({ movie }) => {
   const { data, setMovie } = useQuery("fantasy",
   getGenres
   );
-  const {fantasyMovies} = useQuery("fantasyMovies")
+  const [fantasyMovies, setFantasyMovies] = useState([]);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Here you can perform any actions with the movie data (e.g., save to database)
-    // console.log({ title, overview, genre, releaseDate, runtime, productionCompany });
+    console.log({ title, overview, genre, releaseDate, runtime, productionCompany });
+    setFantasyMovies  ((prev) => ([...prev, {title: title , overview: overview, genre: genre, releaseDate: releaseDate,
+      runtime: runtime, productionCompany: productionCompany}]))
+      
     // Clear form inputs
     setTitle('');
     setOverview('');
@@ -45,6 +48,7 @@ const FantasyMovieForm = ({ movie }) => {
     setRuntime('');
     setProductionCompany('');
   };
+  console.log("T: ", fantasyMovies)
 
   const onSubmit = (fantasyMovie) => {
     console.log("My fantasy Movie: ", fantasyMovie);
@@ -133,7 +137,7 @@ const FantasyMovieForm = ({ movie }) => {
         Create Movie
       </Button>
     </form>
-    {/*<FantasyMovieList fantasyMovie={fantasyMovies} /> */}
+    <FantasyMovie fantasyMovie={fantasyMovies} />
     </>
   );
 };
