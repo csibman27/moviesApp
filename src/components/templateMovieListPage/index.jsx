@@ -49,12 +49,15 @@ function MovieListPageTemplate({
     });
 
   if (sortByTitle) {
-    displayedMovies.sort((a, b) => (a.title > b.title ? 1 : -1));
-    // in here if (sortByTitle === 'Sort alphabetically by first') {
-    //  displayedMovies.sort((a, b) => (a.title > b.title ? 1 : -1));
-  
+    if (sortByTitle === 'Sort alphabetically from A-Z') {
+      displayedMovies.sort((a, b) => (a.title > b.title ? 1 : -1))
+    } else if (sortByTitle === 'Sort alphabetically from Z-A') {
+      displayedMovies.sort((a, b) => (a.title < b.title ? 1 : -1))
+    }
+      
+    
     //console.log(sortByTitle)
-  }
+  };
 
   const handleChange = (type, value) => {
     if (type === "title") setTitleFilter(value);

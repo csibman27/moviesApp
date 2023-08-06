@@ -57,7 +57,7 @@ export default function FilterMoviesCard(props) {
   };
 
   //array of production companies
-  const sortList = ['Sort alphabetically by first', 'Sort alphabetically by last' ];
+  const sortList = ['Sort alphabetically from A-Z', 'Sort alphabetically from Z-A' ];
 
   const handleSortTitleChange = (e) => {
     handleUserInput(e, "sortTitle", e.target.value);
