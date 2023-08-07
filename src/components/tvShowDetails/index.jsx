@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
+import TVShowReviews from '../tvShowReviews';
 
 const styles = {
     chipSet: {
@@ -72,7 +73,7 @@ const TVShowDetails = ( {tvshow}) => {
                 Reviews
             </Fab>
             <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-                {/* <MovieReviews tvshow={tvshow} /> */}
+                <TVShowReviews tvshow={tvshow} />
             </Drawer>
         </>
     );

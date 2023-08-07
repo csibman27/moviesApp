@@ -27,9 +27,6 @@ __Name:__ Tibor Molnar
 
 ## Feature UI Designs.
 
-[ For each feature listed above, show a screenshot(s) of its UI layout (use appropriate magnification for accessibility). Include a caption with each image.]
-
-e.g. 
 
 #### Popular Movies.
 
@@ -51,17 +48,87 @@ e.g.
 
 > Click the 'Full Review' link of a review extract to see the review's full text. 
 
-![][image3]
+![][tmolnar_popular_fullr]
 
-.... other features .......
+#### Popular Movies Pagination.
 
-## Storybook.
+> Shows next page of content using pagination component
 
-[Include a screenshot(s) from the Storybook UI and highlight the stories for new components developed.]
+![][tmolnar_popular_pagination]
 
-e.g.
+#### Popular Movies Sort.
 
-![][image5]
+> Sorts popular movies alphabetically A-Z or Z-A orders
+
+![][tmolnar_popular_sort]
+
+
+#### Similar Movies.
+
+> Lists movies from the Similar Movies endpoint of TMDB. (using search movie endpoint)
+
+![][tmolnar_similar]
+
+#### Similar Movies Detailed.
+
+> Lists movies from the Similar Movies endpoint of TMDB with detailed properties.
+
+![][tmolnar_similar_details]
+
+#### Similar Movies Reviews.
+
+> Lists all the reviews for a particular movie (shows text extract only).
+
+![][tmolnar_similar_reviews]
+
+> Click the 'Full Review' link of a review extract to see the review's full text. 
+
+![][tmolnar_similar_fullr]
+
+#### Similar movies pagination was not required as the result of movies are always less then a page
+
+#### Similar Movies Sort.
+
+> Sorts Similar movies alphabetically A-Z or Z-A orders
+
+![][tmolnar_similar_sort]
+
+
+#### TV Shows.
+
+> Lists TV Shows from the Popular TV Shows endpoint of TMDB.
+
+![][tmolnar_tvshow]
+
+#### TV Shows Detailed.
+
+> Lists TV Shows from the Popular TV Shows endpoint of TMDB with detailed properties.
+
+![][tmolnar_tvshow_details]
+
+#### TV Show Reviews.
+
+> Lists all the reviews for a particular movie (shows text extract only).
+
+![][tmolnar_popular_reviews]
+
+> Click the 'Full Review' link of a review extract to see the review's full text. 
+
+![][tmolnar_popular_fullr]
+
+#### Popular Movies Pagination.
+
+> Shows next page of content using pagination component
+
+![][tmolnar_popular_pagination]
+
+#### Popular Movies Sort.
+
+> Sorts popular movies alphabetically A-Z or Z-A orders
+
+![][tmolnar_popular_sort]
+
+
 
 ## Authentication. (if relevant)
 
@@ -101,8 +168,9 @@ Username: test1 ; Password: pass1
 ## Additional Information.
 
 + Sorting
-    + Data can be sorted alphabetically by title, and also by release date using checkboxes.
+    + Movies and shows can be sorted alphabetically by title, A-Z or Z-A orders.
 + Pagination
+    + All main pages have a pagination numbering at footer.
 
 [ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
 
@@ -114,3 +182,11 @@ Username: test1 ; Password: pass1
 [tmolnar_popular]: ./images/tmolnar_popular.jpg
 [tmolnar_popular_details]: ./images/tmolnar_popular_details.jpg
 [tmolnar_popular_reviews]: ./images/tmolnar_popular_reviews.jpg
+[tmolnar_popular_fullr]: ./images/tmolnar_popular_fullr.jpg
+[tmolnar_popular_pagination]: ./images/tmolnar_popular_pagination.jpg
+[tmolnar_popular_sort]: ./images/tmolnar_popular_sort.jpg
+[tmolnar_similar]: ./images/tmolnar_similar.jpg
+[tmolnar_similar_details]: ./images/tmolnar_similar_details.jpg
+[tmolnar_similar_reviews]: ./images/tmolnar_similar_reviews.jpg
+[tmolnar_similar_fullr]: ./images/tmolnar_similar_fullr.jpg
+[tmolnar_similar_sort]: ./images/tmolnar_similar_sort.jpg

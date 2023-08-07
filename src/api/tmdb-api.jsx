@@ -111,12 +111,23 @@ export const getMovieReviews = (id) => {
         `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${import.meta.env.VITE_TMDB_KEY}`
     ).then((response) => response.json())
      .then((json) => {
-            // console.log(json.results);
             return json.results;
         })
         .catch((error) => {
             throw error
         });
+};
+
+export const getSeriesReviews = (id) => {
+  return fetch(
+      `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${import.meta.env.VITE_TMDB_KEY}`
+  ).then((response) => response.json())
+   .then((json) => {
+          return json.results;
+      })
+      .catch((error) => {
+          throw error
+      });
 };
 
 export const getUpcomingMovies = (args) => {
