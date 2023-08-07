@@ -19,23 +19,23 @@ const FantasyMovie = ({ fantasyMovie }) => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="right"> Title</TableCell>
-              <TableCell align="right"> Overview </TableCell>
-              <TableCell align="right"> Genre </TableCell>
-              <TableCell align="right"> Release Date </TableCell>
-              <TableCell align="right"> Runtime </TableCell>
-              <TableCell align="right"> Production Company </TableCell>
+              <TableCell align="left"> Title</TableCell>
+              <TableCell align="left"> Overview </TableCell>
+              <TableCell align="left"> Genre </TableCell>
+              <TableCell align="left"> Release Date </TableCell>
+              <TableCell align="left"> Runtime </TableCell>
+              <TableCell align="left"> Production Company </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {fantasyMovie.map((m) => (
               <TableRow>
-                <TableCell align="left">{m?.title}</TableCell>
-                <TableCell align="left">{m?.overview}</TableCell>
-                <TableCell align="left">{m?.genre}</TableCell>
-                <TableCell align="left">{m?.releaseDate}</TableCell>
-                <TableCell align="left">{m?.runtime}</TableCell>
-                <TableCell align="left">{m?.companyList}</TableCell>
+                <TableCell>{m?.title}</TableCell>
+                <TableCell>{m?.overview}</TableCell>
+                <TableCell>{m?.genre}</TableCell>
+                <TableCell>{m?.releaseDate}</TableCell>
+                <TableCell>{m?.runtime}</TableCell>
+                <TableCell>{m?.productionCompany}</TableCell>
               </TableRow>
             ))}
           </TableBody>

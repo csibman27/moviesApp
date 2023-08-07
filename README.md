@@ -182,14 +182,11 @@ __Name:__ Tibor Molnar
     + Movies and shows can be sorted alphabetically by title, A-Z or Z-A orders.
 + Pagination
     + All main pages have a pagination numbering at footer.
++ Home Page anchor
+    + Pressing the home route menu while on a different page (home, upcoming...) will be loading first page again.
+    + This works if a movie page is sorted, after pressing home page route it will un-sort the order.  
 
-[ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
 
-[image1]: ./images/image1.png
-[image2]: ./images/image2.png
-[image3]: ./images/image3.png
-[image4]: ./images/image4.png
-[image5]: ./images/image5.png
 [tmolnar_popular]: ./images/tmolnar_popular.jpg
 [tmolnar_popular_details]: ./images/tmolnar_popular_details.jpg
 [tmolnar_popular_reviews]: ./images/tmolnar_popular_reviews.jpg

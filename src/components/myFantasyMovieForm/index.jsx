@@ -28,9 +28,9 @@ const FantasyMovieForm = ({ movie }) => {
   const [releaseDate, setReleaseDate] = useState('');
   const [runtime, setRuntime] = useState('');
   const [productionCompany, setProductionCompany] = useState('');
-  const { data, setMovie } = useQuery("fantasy",
-  getGenres
-  );
+  // const { data, setMovie } = useQuery("fantasy",
+  // getGenres
+  // );
   const [fantasyMovies, setFantasyMovies] = useState([]);
 
   const handleFormSubmit = (e) => {
@@ -49,24 +49,6 @@ const FantasyMovieForm = ({ movie }) => {
     setProductionCompany('');
   };
   console.log("T: ", fantasyMovies)
-
-  const onSubmit = (fantasyMovie) => {
-    console.log("My fantasy Movie: ", fantasyMovie);
-    context.addFantasyMovie(fantasyMovie);
-  };
-  
-//   const addToMustWatchList = (movie) => {
-//     if (!mustWatch.includes(movie.id)) {
-//         let newMustWatch = [...mustWatch, movie.id];
-//         setMustWatch(newMustWatch);
-//     }
-// };
-
-//  const genress = data
-//  console.log(genress.map((g) => { return g.name}))
-    
-  
-
 
   return (
     <>
@@ -117,11 +99,12 @@ const FantasyMovieForm = ({ movie }) => {
         required
         style={{ marginBottom: 16 }}
       />
-        <FormControl fullWidth required>
+        <FormControl style={{ marginBottom: 25 }}>
         <InputLabel>Production Company</InputLabel>
         <Select
           value={productionCompany}
           onChange={(e) => setProductionCompany(e.target.value)}
+          required
         >
           {companyList.map((productionCompany) => (
             <MenuItem key={productionCompany} value={productionCompany}>
