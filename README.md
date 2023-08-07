@@ -5,8 +5,6 @@ __Name:__ Tibor Molnar
 
 ## Features.
 
-[A bullet-point list of the features developed for the React SPA app (only new/modified ones for the Movies app),]
-
 + **List View**
     + Popular
     + Similar
@@ -17,12 +15,17 @@ __Name:__ Tibor Molnar
     + Similar detailed view with overview, genres, runtime, rate, profit, released
     + Actors with multiple detailed views, Actor Bio and Actor Movies.
     + TV Shows detailed view with overview, genres, rate, runtime, languages, original name, last air date
-+ **Other Features**
++ **Other Features Summarised**
     + My Fantasy Movies Page
     + Date Picker
-    + additional routings 
-    + data hyperlink
+    + additional routings
     + Pressing the home route menu again (home, upcoming...) will load first page
+    + Data hyperlinking can be find in actors movies
+    + 4 new entities added (popular movies, similar movies, actor, tv show)
+    + Cashing used everywhere
+    + Sorting criteria that alphabetically sorts movies and tv shows
+    + Search bar in similar movies page
+    + 17 API endpoints used
    
 
 ## Feature UI Designs.
@@ -145,47 +148,33 @@ __Name:__ Tibor Molnar
 
 #### Fantasy Movies.
 
-> Lists movies that is user defined.
+> Lists of movies that is user defined.
 
 ![][tmolnar_fantasy]
 
+> Date picker for movie release date
 
-## Authentication. (if relevant)
+![][tmolnar_fantasy_date]
 
-#### Protected routes 
 
-[List all the routes in your app and highlight those that are protected/private (require authentication).]
+## Routes.
 
-e.g.
 
-+ /movies/{id}- List of 20  movies from the Discover endpoint,
-+ /movies/favourites
++ /movies/{id} - List of movies from the Discover endpoint.
++ /movies/favourites - Favourite movies in a separate page.
 + /movies/{id} - Detailed information on a specific movie.
-+ /movies/upcoming
-+ /reviews/{id} (Protected) - The full text of a movie review.
-+ /movie/{movie_id}/similar - A list of similar movies. 
-+ /person/{person_id} (Protected) - A specific actor's bio.
-+ etc
-+ etc
++ /movies/upcoming - List of upcoming movies from upcoming endpoint.
++ /movies/popular - A list of popular movies from top rated TMDB endpoint.
++ /movies/similar - A list of similar movies from similar and search TMDB endpoints.
++ /reviews/{id} - The full text of a movie review. 
++ /tvshows - A list of popular TV Shows from tv TMDB endpoint.
++ /tvshow/:id - A particular TV Show details page using tv endpoint.
++ /actors - A list of actors from TMDB popular endpoint.
++ /actor/:id - A specific actor's biography using person endpoint.
++ /actor/:id/movies - A specific actor's movies using person endpoint.
++ /fantasy - Fantasy movie form including fantasy movie list
 
-#### Protected functionality. (if relevant)
 
-[ Briefly state any app functionality that requires authentication, e.g. only authenticated users can tag a movie as a 'favourite'.]
-
-#### Supabase (if relevant)
-
-[Include a screenshot(s) from your Supabase account that verifies its use for this app. ]
-
-## Deployment (if relevant).
-
-[Specify the URL of your deployed app and include a screenshot(s) from your deployment platform account (e.g. Vercal) that verifies its use for this app. Set up a registered user for your app and specify their credentials.
-
-Username: test1 ; Password: pass1
-]
-
-## Persistence (if relevant).
-
-[If you are persisting data to the Supabase backend (e.g. favourite movies, fantasy movie), include screenshots with appropriate captions to verify this aspect. ]
 
 ## Additional Information.
 
@@ -221,3 +210,4 @@ Username: test1 ; Password: pass1
 [tmolnar_actor_bio]: ./images/tmolnar_actor_bio.jpg
 [tmolnar_actor_movies]: ./images/tmolnar_actor_movies.jpg
 [tmolnar_fantasy]: ./images/tmolnar_fantasy.jpg
+[tmolnar_fantasy_date]: ./images/tmolnar_fantasy_date.jpg
