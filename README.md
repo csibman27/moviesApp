@@ -52,13 +52,13 @@ __Name:__ Tibor Molnar
 
 #### Popular Movies Pagination.
 
-> Shows next page of content using pagination component
+> Shows next page of content using pagination component.
 
 ![][tmolnar_popular_pagination]
 
 #### Popular Movies Sort.
 
-> Sorts popular movies alphabetically A-Z or Z-A orders
+> Sorts popular movies alphabetically A-Z or Z-A orders.
 
 ![][tmolnar_popular_sort]
 
@@ -89,7 +89,7 @@ __Name:__ Tibor Molnar
 
 #### Similar Movies Sort.
 
-> Sorts Similar movies alphabetically A-Z or Z-A orders
+> Sorts Similar movies alphabetically A-Z or Z-A orders.
 
 ![][tmolnar_similar_sort]
 
@@ -108,26 +108,46 @@ __Name:__ Tibor Molnar
 
 #### TV Show Reviews.
 
-> Lists all the reviews for a particular movie (shows text extract only).
+> Lists all the reviews for a particular TV Show (unfortunately no reviews pulled from TMDB).
 
-![][tmolnar_popular_reviews]
+![][tmolnar_tvshow_reviews]
 
-> Click the 'Full Review' link of a review extract to see the review's full text. 
 
-![][tmolnar_popular_fullr]
+#### TV SHows Pagination.
 
-#### Popular Movies Pagination.
+> Shows next page of content using pagination component.
 
-> Shows next page of content using pagination component
+![][tmolnar_tvshow_pagination]
 
-![][tmolnar_popular_pagination]
+#### TV Shows Sort.
 
-#### Popular Movies Sort.
+> Sorts TV Shows alphabetically A-Z or Z-A orders.
 
-> Sorts popular movies alphabetically A-Z or Z-A orders
+![][tmolnar_tvshow_sort]
 
-![][tmolnar_popular_sort]
 
+#### Actors.
+
+> Lists Actors from the Popular Actors endpoint of TMDB.
+
+![][tmolnar_actors]
+
+#### Actors Detailed.
+
+> Lists Actors from the Popular Actors endpoint of TMDB with details of Actor Biography.
+
+![][tmolnar_actor_bio]
+
+> Lists Actors from the Popular Actors endpoint of TMDB with details of Actor Movies.
+
+![][tmolnar_actor_movies]
+
+
+#### Fantasy Movies.
+
+> Lists movies that is user defined.
+
+![][tmolnar_fantasy]
 
 
 ## Authentication. (if relevant)
@@ -138,9 +158,11 @@ __Name:__ Tibor Molnar
 
 e.g.
 
-+ /movies - List of 20  movies from the Discover endpoint,
-+ /movies/{movie_id} - Detailed information on a specific movie.
-+ /reviews/{review_id} (Protected) - The full text of a movie review.
++ /movies/{id}- List of 20  movies from the Discover endpoint,
++ /movies/favourites
++ /movies/{id} - Detailed information on a specific movie.
++ /movies/upcoming
++ /reviews/{id} (Protected) - The full text of a movie review.
 + /movie/{movie_id}/similar - A list of similar movies. 
 + /person/{person_id} (Protected) - A specific actor's bio.
 + etc
@@ -190,3 +212,12 @@ Username: test1 ; Password: pass1
 [tmolnar_similar_reviews]: ./images/tmolnar_similar_reviews.jpg
 [tmolnar_similar_fullr]: ./images/tmolnar_similar_fullr.jpg
 [tmolnar_similar_sort]: ./images/tmolnar_similar_sort.jpg
+[tmolnar_tvshow]: ./images/tmolnar_tvshow.jpg
+[tmolnar_tvshow_details]: ./images/tmolnar_tvshow_details.jpg
+[tmolnar_tvshow_reviews]: ./images/tmolnar_tvshow_reviews.jpg
+[tmolnar_tvshow_pagination]: ./images/tmolnar_tvshow_pagination.jpg
+[tmolnar_tvshow_sort]: ./images/tmolnar_tvshow_sort.jpg
+[tmolnar_actors]: ./images/tmolnar_actors.jpg
+[tmolnar_actor_bio]: ./images/tmolnar_actor_bio.jpg
+[tmolnar_actor_movies]: ./images/tmolnar_actor_movies.jpg
+[tmolnar_fantasy]: ./images/tmolnar_fantasy.jpg
