@@ -111,3 +111,6 @@ Username: test1 ; Password: pass1
 [image3]: ./images/image3.png
 [image4]: ./images/image4.png
 [image5]: ./images/image5.png
+[tmolnar_popular]: ./images/tmolnar_popular.jpg
+[tmolnar_popular_details]: ./images/tmolnar_popular_details.jpg
+[tmolnar_popular_reviews]: ./images/tmolnar_popular_reviews.jpg
