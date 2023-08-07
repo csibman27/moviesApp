@@ -8,7 +8,7 @@ import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 const TVShowsPage = (props) => {
 
   const [ currentPageShow, setCurrentPageShow ] = useState(1);
-  const { data, error, isLoading, isError } = useQuery(["discover", {currentPageShow: currentPageShow}],
+  const { data, error, isLoading, isError } = useQuery(["tvshows", {currentPageShow: currentPageShow}],
   getTvSeries
   );
 
@@ -31,7 +31,7 @@ const TVShowsPage = (props) => {
     tvShow.title = tvShow.name;
     return tvShow;
   });
-  console.log("Show TV shows API: ", tvshows)
+  //console.log("Show TV shows API: ", tvshows)
   
 
       return (

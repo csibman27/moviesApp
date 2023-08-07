@@ -35,7 +35,7 @@ function TVShowPageListTemplate({
   const [sortByTitle, setSortByTitle] = useState(false);
 
   const handleChange1 = (event, value) => {
-    setCurrentPage(value);
+    setCurrentPageShow(value);
     //console.log("ONLY E", event, value);
   };
 

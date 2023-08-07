@@ -28,7 +28,6 @@ const TVShowHeader = (props) => {
 
             <Typography variant="h4" component="h3">
                 {tvshow.name}
-                
                 <br />
                 <span>{`${tvshow.tagline}`} </span>
             </Typography>

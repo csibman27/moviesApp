@@ -7,9 +7,23 @@ __Name:__ Tibor Molnar
 
 [A bullet-point list of the features developed for the React SPA app (only new/modified ones for the Movies app),]
 
-+ Feature TV Shows
-+ Feature Y. 
-+ etc.
++ **List View**
+    + Popular
+    + Similar
+    + Actors
+    + TV Shows
++ **Detail view**
+    + Popular detailed view with overview, genres, runtime, rate, profit, released
+    + Similar detailed view with overview, genres, runtime, rate, profit, released
+    + Actors with multiple detailed views, Actor Bio and Actor Movies.
+    + TV Shows detailed view with overview, genres, rate, runtime, languages, original name, last air date
++ **Other Features**
+    + My Fantasy Movies Page
+    + Date Picker
+    + additional routings 
+    + data hyperlink
+    + Pressing the home route menu again (home, upcoming...) will load first page
+   
 
 ## Feature UI Designs.
 
@@ -17,17 +31,23 @@ __Name:__ Tibor Molnar
 
 e.g. 
 
-#### TV Shows.
+#### Popular Movies.
 
-> Lists movies from the TV Shows endpoint of TMDB.
+> Lists movies from the Popular Movies endpoint of TMDB.
 
-![][Screenshot-tvseries]
+![][tmolnar_popular]
 
-#### Movies Reviews.
+#### Popular Movies Detailed.
+
+> Lists movies from the Popular Movies endpoint of TMDB with detailed properties.
+
+![][tmolnar_popular_details]
+
+#### Popular Movies Reviews.
 
 > Lists all the reviews for a particular movie (shows text extract only).
 
-![][image2]
+![][tmolnar_popular_reviews]
 
 > Click the 'Full Review' link of a review extract to see the review's full text. 
 
@@ -79,6 +99,10 @@ Username: test1 ; Password: pass1
 [If you are persisting data to the Supabase backend (e.g. favourite movies, fantasy movie), include screenshots with appropriate captions to verify this aspect. ]
 
 ## Additional Information.
+
++ Sorting
+    + Data can be sorted alphabetically by title, and also by release date using checkboxes.
++ Pagination
 
 [ Briefly explain any other aspects of your app's design or implementation that is non-standard and worthy of mention.]
 

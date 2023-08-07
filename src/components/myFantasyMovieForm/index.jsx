@@ -36,7 +36,7 @@ const FantasyMovieForm = ({ movie }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Here you can perform any actions with the movie data (e.g., save to database)
-    console.log({ title, overview, genre, releaseDate, runtime, productionCompany });
+    //console.log({ title, overview, genre, releaseDate, runtime, productionCompany });
     setFantasyMovies  ((prev) => ([...prev, {title: title , overview: overview, genre: genre, releaseDate: releaseDate,
       runtime: runtime, productionCompany: productionCompany}]))
       
