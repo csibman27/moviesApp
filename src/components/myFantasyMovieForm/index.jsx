@@ -7,7 +7,7 @@ import { MenuItem } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import FantasyMovie from '../myFantasyMovie';
 import { MoviesContext } from "../../contexts/moviesContext";
-import { getGenres, getMovie } from '../../api/tmdb-api';
+import { getGenres } from '../../api/tmdb-api';
 import {useQuery} from "react-query";
 
 
@@ -28,9 +28,9 @@ const FantasyMovieForm = ({ movie }) => {
   const [releaseDate, setReleaseDate] = useState('');
   const [runtime, setRuntime] = useState('');
   const [productionCompany, setProductionCompany] = useState('');
-  // const { data, setMovie } = useQuery("fantasy",
-  // getGenres
-  // );
+  const { data, setMovie } = useQuery("fantasy",
+  getGenres
+  );
   const [fantasyMovies, setFantasyMovies] = useState([]);
 
   const handleFormSubmit = (e) => {
@@ -48,8 +48,7 @@ const FantasyMovieForm = ({ movie }) => {
     setRuntime('');
     setProductionCompany('');
   };
-  console.log("T: ", fantasyMovies)
-
+  
   return (
     <>
     <form onSubmit={handleFormSubmit} style={{ display: 'flex', flexDirection: 'column', maxWidth: 400, margin: 'auto' }}>
@@ -99,12 +98,11 @@ const FantasyMovieForm = ({ movie }) => {
         required
         style={{ marginBottom: 16 }}
       />
-        <FormControl style={{ marginBottom: 25 }}>
+        <FormControl fullWidth required>
         <InputLabel>Production Company</InputLabel>
         <Select
           value={productionCompany}
           onChange={(e) => setProductionCompany(e.target.value)}
-          required
         >
           {companyList.map((productionCompany) => (
             <MenuItem key={productionCompany} value={productionCompany}>
